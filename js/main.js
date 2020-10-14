@@ -49,14 +49,19 @@ function removeTodo(e) {
   if (item.className === 'far fa-minus-square'){
     parentItem.remove();
   }
-  if (item.className === 'user-item') {
-    item.classList.add('line-through')
-    if (item.classList[1] === 'line-through'){
-      item.nextElementSibling.style.display = "block";
-    }
-  }
+  lineThrough(item);
 }
 
+//function add line through
+function lineThrough(items) {
+  if (items.className === 'user-item') {
+    items.classList.add('line-through');
+    items.nextElementSibling.style.display = "block";
+  }else if (items.classList[1] === 'line-through'){
+    items.classList.remove('line-through');
+    items.nextElementSibling.style.display = "none";
+  }
+}
 
 
 // addEventListenner
